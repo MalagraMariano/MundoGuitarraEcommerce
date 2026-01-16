@@ -1,0 +1,279 @@
+
+/*Reseteo pagina de formatos*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header h1 {
+  inline-size: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  /*  centra todos items */
+  justify-content: flex-start;
+  /* Espacio entre items */
+  gap: 10rem;
+  width: 100%;
+  height: 100%;
+}
+
+header img {
+  height: 50px;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+  max-width: 120px;
+}
+
+header main {
+  flex: unset;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Estilos del logo y título */
+header input {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ff9800;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+header input:hover {
+  background-color: #e65100;
+}
+
+header input[type=text] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: skew(-10deg); /* Efecto de inclinación */
+}
+
+.logo-title {
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+}
+
+nav {
+  position: relative;
+  z-index: 10;
+}
+
+
+/* Estilos de navegación y carousel para pantallas pequeñas */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    background-color: #fffbe6;
+  }
+  .navbar-collapse {
+    background: #ff9800;
+    border-radius: 5px;
+  }
+  .navbar {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 0.5rem 1rem;
+    background: #ff9800;
+  }
+  .navbar-brand {
+    flex-shrink: 0;
+    order: 1;
+  }
+  .navbar-toggler {
+    display: block !important;
+    z-index: 1001;
+    background: #c9c6c1;
+    border: none;
+    order: 2;
+  }
+  .navbar-collapse {
+    width: 100%;
+    order: 3;
+  }
+  .logo {
+    margin-bottom: 0.5rem;
+    justify-content: center;
+  }
+}
+/* Estilos de navegación y carousel para pantallas grandes */
+@media (min-width: 900px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 1rem;
+    background: #ff9800;
+  }
+  .navbar-brand {
+    flex-shrink: 0;
+    margin-right: 200px;
+  }
+  .navbar-collapse {
+    display: flex !important;
+    flex: 0;
+    justify-content: center;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    background-color: #ff9800;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+    min-width: 100px;
+  }
+  .navbar-nav,
+  nav ul {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+  }
+  nav li {
+    display: inline-block;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    flex: 1 1 0;
+    font-weight: bold;
+    transition: background 0.2s;
+    min-width: 120px;
+  }
+  #mainCarousel {
+    max-height: 500px;
+    /* Ajusta este valor según lo que prefieras */
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  #mainCarousel .carousel-item img {
+    max-height: 500px;
+    /* Igual que el carousel */
+    width: 100%;
+    object-fit: cover;
+  }
+  nav a:hover {
+    background-color: #e65100;
+    color: #000;
+  }
+  nav li:hover {
+    color: #000;
+  }
+  nav li.active > a,
+  nav a.active {
+    background-color: #f4c681;
+    color: #fff;
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+    font-weight: bold;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: auto;
+}
+
+/* Estilos Generales */
+body {
+  background-color: #fffbe6;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  /* Centra el contenido del footer */
+  align-items: center;
+  /* Centra verticalmente */
+  padding: 1rem;
+  background-color: #333;
+  /* Fondo oscuro para el footer */
+  color: white;
+  /* Texto blanco */
+}
