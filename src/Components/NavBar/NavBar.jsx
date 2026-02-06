@@ -1,28 +1,35 @@
+import { Link, NavLink } from 'react-router-dom';
 import CarWidget from "../CarWidget/CarWidget";
+import './NavBar.css';
 
 const NavBar = () => {
+    const categories = [
+        { id: 'guitarras', name: 'Guitarras' },
+        { id: 'bajos', name: 'Bajos' },
+        { id: 'ukelele', name: 'Ukelele' },
+        { id: 'pedales', name: 'Pedales' },
+        { id: 'teclados', name: 'Teclados' }
+    ];
+
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <img src="/MundoGuitarraLogo.png" alt="Mundo Guitarra" />
+                <Link to="/">
+                    <img src="/MundoGuitarraLogo.png" alt="Mundo Guitarra" />
+                </Link>
             </div>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Guitarras</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Bajos</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Ukelele</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Pedales</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Teclados</a>
-                    </li>
+                    {categories.map((category) => (
+                        <li key={category.id} className="nav-item">
+                            <NavLink 
+                                to={`/category/${category.id}`}
+                                className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+                            >
+                                {category.name}
+                            </NavLink>
+                        </li>
+                    ))}
                 </ul>
             </div>
             <CarWidget />
