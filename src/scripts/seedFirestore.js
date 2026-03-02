@@ -2,7 +2,7 @@
 // Ejecutar con: node src/scripts/seedFirestore.js
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, query, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
 
 // Configuración de Firebase (misma que en firebase.js)
 const firebaseConfig = {
@@ -152,11 +152,8 @@ async function seedFirestore() {
     console.log(`   - Stock total: ${products.reduce((acc, p) => acc + p.stock, 0)} unidades`);
     console.log(`   - Precio mínimo: $${Math.min(...products.map(p => p.price))}`);
     console.log(`   - Precio máximo: $${Math.max(...products.map(p => p.price))}`);
-
-    process.exit(0);
   } catch (error) {
     console.error("❌ Error general:", error);
-    process.exit(1);
   }
 }
 
