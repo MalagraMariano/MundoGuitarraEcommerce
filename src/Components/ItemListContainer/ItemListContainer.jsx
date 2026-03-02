@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
-import { getProducts, getProductsByCategory } from '../../data/products';
+import { getProductsFromFirestore, getProductsByCategory } from '../../firebase';
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -20,7 +20,7 @@ const ItemListContainer = () => {
           setLoading(false);
         });
     } else {
-      getProducts()
+      getProductsFromFirestore()
         .then(data => {
           setItems(data);
           setLoading(false);
@@ -33,7 +33,12 @@ const ItemListContainer = () => {
   }, [categoryId]);
 
   if (loading) {
-    return <div style={{ textAlign: 'center', padding: '40px' }}>Cargando productos...</div>;
+    return (
+      <div style={{ textAlign: 'center', padding: '40px' }}>
+        <div className="loader"></div>
+        <p>Cargando productos...</p>
+      </div>
+    );
   }
 
   if (items.length === 0) {

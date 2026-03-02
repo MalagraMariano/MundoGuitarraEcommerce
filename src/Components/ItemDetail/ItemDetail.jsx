@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
 
-const ItemDetail = ({ item, onAddToCart }) => {
+const ItemDetail = ({ item, onAddToCart, isAdded }) => {
   if (!item) {
     return <div className="item-detail-container">Producto no encontrado</div>;
   }
@@ -20,7 +20,6 @@ const ItemDetail = ({ item, onAddToCart }) => {
           <h1>{item.name}</h1>
           <p className="detail-category">{item.category}</p>
           <p className="detail-description">{item.description}</p>
-          
           <div className="detail-specs">
             <div className="spec">
               <span className="spec-label">Precio:</span>
@@ -34,7 +33,14 @@ const ItemDetail = ({ item, onAddToCart }) => {
             </div>
           </div>
 
-          <ItemCount stock={item.stock} onAddToCart={onAddToCart} />
+          {isAdded ? (
+            <div className="added-success-message">
+              <p>✓ Producto agregado al carrito</p>
+              <Link to="/cart" className="view-cart-btn">Ver carrito</Link>
+            </div>
+          ) : (
+            <ItemCount stock={item.stock} onAddToCart={onAddToCart} />
+          )}
 
           <Link to="/" className="back-link">← Volver al catálogo</Link>
         </div>
