@@ -48,15 +48,7 @@
   font-weight: 600;
   background-color: white;
   padding: 8px;
-}
-
-.qty-input::-webkit-outer-spin-button,
-.qty-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.qty-input[type=number] {
+  color: #333;
   appearance: textfield;
   -moz-appearance: textfield;
 }
